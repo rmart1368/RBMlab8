@@ -1,10 +1,16 @@
 def encode(password):
     passcode = []
     for i in range(len(password)):
-        passcode.append(chr(ord(password[i]) + 1))
+        passcode.append(chr(ord(password[i]) + 3))
 
     return "".join(passcode)
 
+def decode(password):
+    decoded = []
+    for i in range(len(password)):
+        decoded.append(chr(ord(password[i]) - 3))
+
+    return "".join(decoded)
 
 if __name__ == "__main__":
 
@@ -21,6 +27,10 @@ if __name__ == "__main__":
             print("Your password has been encoded and stored!")
 
         if menu == "2":
-            pass
+            dec = decode(code)
+            print(f"The encoded password is {code}, and the original password is {dec}")
+            
         if menu == "3":
             exit()
+
+
